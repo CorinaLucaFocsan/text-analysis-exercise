@@ -5,25 +5,12 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 /**
  * A program to analyze the use of verbal tics in any transcribed text.
- * Complete the functions to perform the tasks indicated in the comments.
- * Refer to the README.md file for additional requirements and helpful hints.
  */
 public class App {
   
-  // use this "global"-ish Scanner variable when getting keyboard input from the user within any function; this avoids common problems using several different Scanners within different functions
   public static Scanner scn = new Scanner(System.in);
 
   /**
-   * The main function is automatically called first in a Java program.
-   * This function contains the main logic of the program that makes use of all the other functions to solve the problem.
-   * This main function MUST make use of the other functions to perform the tasks those functions are designed for, i.e.:
-   * - you must use the getFilepathFromUser() to get the file path to the text file that the user wants to analyze
-   * - you must use the getContentsOfFile() function whenever you need to get the contents of the text file
-   * - you must use the getTicsFromUser() function whenever you need to get the set of tics the user wants to analyze in the text
-   * - you must use the countOccurrences() function whenever you want to count the number of occurrences of a given tic within the text
-   * - you must use the calculatePercentage() function whenever you want to calculate the percentage of all tics in the text that a given tic consumes
-   * - you must use the calculateTicDensity() function to calculate the proportion of all words in the text that are tic words
-   * 
    * @param args An array of any command-line arguments.
    */
   // MAIN FUNCTION:
@@ -93,10 +80,6 @@ public class App {
    * METHOD 1:
    * getFilepathFromUser method
    * Asks the user to enter the path to the text file they want to analyze.
-   * Hint:
-   *  - use the "global"-ish Scanner variable scn to get the response from the user, rather than creating a new Scanner variable ithin this function.
-   *  - do not close the "global"-ish Scanner so that you can use it in other functions
-   * @return The file path that the user enters, e.g. "data/trump_speech_010621.txt"
    */
   public static String getFilepathFromUser() {
 
@@ -142,10 +125,6 @@ public class App {
    * METHOD 3:
    * getTicsFromUser method
    * Asks the user to enter a comma-separated list of tics, e.g. "uh,like, um, you know,so", and returns an array containing those tics, e.g. { "uh", "like", "um", "you know", "so" }.
-   * Hint:
-   *  - use the "global"-ish Scanner variable scn to get the response from the user, rather than creating a new Scanner variable ithin this function.
-   *  - do not close the "global"-ish Scanner so that you can use it in other functions
-   * @return A String array containing each of the tics to analyze, with any leading or trailing whitespace removed from each tic.
    */
 
   public static String[] getTicsFromUser(){
@@ -203,10 +182,6 @@ public class App {
    * METHOD 6:
    * calculateTicDensity method
    * Calculates the "density" of tics in the text.  In other words, the proportion of tic words to the total number of words in a text.
-   * Hint:
-   *  - assume that words in the text are separated from one another by any of the following characters: space ( ), line break (\n), tab (\t), period (.), comma (,), question mark (?), or exclamation mark (!)
-   *  - all Strings have a .split() method which can split by any of a collection of characters given as an argument;  This function returns an array of the remaining text that was separated by any of those characters
-   *  - e.g. "foo-bar;baz.bum".split("[-;.]+") will result in an array with { "foo", "bar", "baz", and "bum" } as the values.
    * @param tics An array of tic words to analyze.
    * @param fullText The full text.
    * @return The proportion of the number of tic words present in the text to the total number of words in the text, as a double.
